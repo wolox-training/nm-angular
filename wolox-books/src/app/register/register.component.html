@@ -1,3 +1,59 @@
-<p>
-  register works!
-</p>
+<form class="container" [formGroup]="registrationForm" (ngSubmit)="submitRegistration(registrationForm.value)">
+  <div></div>
+  <div class="formContainer">
+    <img src="assets/wolox.png" alt="Wolox" class="woloxImage">
+
+    <div class="inputContainer">
+      <label class="inputLabel"> First name </label>
+      <input class="inputField" type="text" formControlName="firstName">
+      <div class="alert" *ngIf="!registrationForm.controls['firstName'].valid && registrationForm.controls['firstName'].touched">
+        Required field.
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel"> Last name </label>
+      <input class="inputField" type="text" formControlName="lastName">
+      <div class="alert" *ngIf="!registrationForm.controls['lastName'].valid && registrationForm.controls['lastName'].touched">
+        Required field.
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel"> Email </label>
+      <input class="inputField" type="email" formControlName="email">
+      <div class="alert" *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
+        Required field.
+      </div>
+      <div class="alert" *ngIf="registrationForm.controls['email'].valid && registrationForm.controls['email'].touched && !validEmail(registrationForm.controls['email'].value)">
+        Invalid format.
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel"> Password </label>
+      <input class="inputField" type="password" formControlName="password">
+      <div class="alert" *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched">
+        Required field.
+      </div>
+    </div>
+
+    <div class="inputContainer">
+      <label class="inputLabel"> Confirm password </label>
+      <input class="inputField" type="password" formControlName="passwordConfirmation">
+      <div class="alert" *ngIf="!registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched">
+        Required field.
+      </div>
+      <div class="alert" *ngIf="registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched && !equalPassword(registrationForm.controls['password'].value, registrationForm.controls['passwordConfirmation'].value)">
+        Password don't match.
+      </div>
+    </div>
+
+    <button class="button" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
+    <div class="logIn" >
+      <button class="button empty">Log in</button>
+    </div>
+
+  </div>
+</form>
+<div></div>

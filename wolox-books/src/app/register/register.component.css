@@ -1,0 +1,106 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer{
+  background-color: #F4F4F4;
+  border-top: 5px solid #0FAAEB;
+  display: grid;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-areas:
+    "imagen"
+    "field"
+    "field"
+    "field"
+    "field"
+    "field"
+    "button"
+    "button";
+    margin: 50px 0px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.woloxImage {
+  grid-area: imagen;
+  margin: auto;
+}
+
+.inputContainer {
+  padding: 20px;
+}
+
+.inputLabel {
+  padding-left: 10px;
+}
+
+.inputField {
+  border: 0;
+  border-radius: 8px;
+  height: 30px;
+  margin-top: 10px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.alert {
+  animation: 2s alertAnim forwards;
+  background: #F2EDDA;
+  display: inline-block;
+  font-size: .9em;
+  margin-bottom: 20px;
+  padding: 7px;
+}
+
+.button {
+  background-color: #A4CC54;
+  border: 2px solid #A4CC54;
+  border-radius: 8px;
+  color: #FFF;
+  font-size: 15pt;
+  height: 60px;
+  margin: auto;
+  max-width: 350px;
+  width: 100%;
+}
+
+.button:disabled {
+  background-color: grey;
+}
+
+.empty {
+  background-color: #F4F4F4;
+  color: #A4CC54;
+}
+
+.logIn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.logIn:before {
+  background: #000;
+  border-top: 2px solid #DCDCDC;
+  content: '';
+  width: 350px;
+}
+
+@keyframes alertAnim {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
