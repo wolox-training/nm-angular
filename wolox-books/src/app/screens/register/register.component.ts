@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UserService } from '../../services/user-service.service';
 
 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -37,14 +38,14 @@ export class RegisterComponent implements OnInit {
     return firstPass === secPass;
   };
 
-  submitRegistration(form) {
+  submitRegistration(form, httpServ: UserService) {
     this.firstName = form.firstName;
     this.lastName = form.lastName;
     this.email = form.email;
     this.password = form.password;
     this.passwordConfirmation = form.passwordConfirmation;
 
-    const registrationRequest = {
+    /*const registrationRequest = {
       user: {
         first_name: this.firstName,
         last_name: this.lastName,
@@ -53,8 +54,21 @@ export class RegisterComponent implements OnInit {
         password_confirmation: this.passwordConfirmation,
         locale: "en"
       }
+    }*/
+
+    const registrationRequest = {
+      "user": {
+        "email": "natasha.martinelli+100@wolox.com.ar",
+        "password": "123123123",
+        "password_confirmation": "123123123",
+        "first_name": "Prueba",
+        "last_name": "Usuario",
+        "locale": "en"
+      }
     }
     console.log(registrationRequest);
+//    httpServ.createUser(registrationRequest).succes((res) => {console.log(res)});
+    UserService.createUser(registrationRequest);
   };
 
   ngOnInit() {};
