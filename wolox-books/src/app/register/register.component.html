@@ -1,59 +1,50 @@
 <form class="container" [formGroup]="registrationForm" (ngSubmit)="submitRegistration(registrationForm.value)">
-  <div></div>
-  <div class="formContainer">
-    <img src="assets/wolox.png" alt="Wolox" class="woloxImage">
-
-    <div class="inputContainer">
-      <label class="inputLabel"> First name </label>
-      <input class="inputField" type="text" formControlName="firstName">
-      <div class="alert" *ngIf="!registrationForm.controls['firstName'].valid && registrationForm.controls['firstName'].touched">
+  <div class="form-container">
+    <img src="assets/wolox.png" alt="Wolox" class="wolox-image">
+    <div class="input-container">
+      <label class="input-label"> First name </label>
+      <input class="input-field" type="text" formControlName="firstName">
+      <span class="alert" *ngIf="!registrationForm.controls['firstName'].valid && registrationForm.controls['firstName'].touched">
         Required field.
-      </div>
+      </span>
     </div>
-
-    <div class="inputContainer">
-      <label class="inputLabel"> Last name </label>
-      <input class="inputField" type="text" formControlName="lastName">
-      <div class="alert" *ngIf="!registrationForm.controls['lastName'].valid && registrationForm.controls['lastName'].touched">
+    <div class="input-container">
+      <label class="input-label"> Last name </label>
+      <input class="input-field" type="text" formControlName="lastName">
+      <span class="alert" *ngIf="!registrationForm.controls['lastName'].valid && registrationForm.controls['lastName'].touched">
         Required field.
-      </div>
+      </span>
     </div>
-
-    <div class="inputContainer">
-      <label class="inputLabel"> Email </label>
-      <input class="inputField" type="email" formControlName="email">
-      <div class="alert" *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
+    <div class="input-container">
+      <label class="input-label"> Email </label>
+      <input class="input-field" type="email" formControlName="email">
+      <span class="alert" *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
         Required field.
-      </div>
-      <div class="alert" *ngIf="registrationForm.controls['email'].valid && registrationForm.controls['email'].touched && !validEmail(registrationForm.controls['email'].value)">
+      </span>
+      <span class="alert" *ngIf="registrationForm.controls['email'].valid && registrationForm.controls['email'].touched && !validEmail(registrationForm.controls['email'].value)">
         Invalid format.
-      </div>
+      </span>
     </div>
-
-    <div class="inputContainer">
-      <label class="inputLabel"> Password </label>
-      <input class="inputField" type="password" formControlName="password">
-      <div class="alert" *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched">
+    <div class="input-container">
+      <label class="input-label"> Password </label>
+      <input class="input-field" type="password" formControlName="password">
+      <span class="alert" *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched">
         Required field.
-      </div>
+      </span>
     </div>
-
-    <div class="inputContainer">
-      <label class="inputLabel"> Confirm password </label>
-      <input class="inputField" type="password" formControlName="passwordConfirmation">
-      <div class="alert" *ngIf="!registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched">
+    <div class="input-container">
+      <label class="input-label"> Confirm password </label>
+      <input class="input-field" type="password" formControlName="passwordConfirmation">
+      <span class="alert" *ngIf="!registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched">
         Required field.
-      </div>
-      <div class="alert" *ngIf="registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched && !equalPassword(registrationForm.controls['password'].value, registrationForm.controls['passwordConfirmation'].value)">
+      </span>
+      <span class="alert" *ngIf="registrationForm.controls['passwordConfirmation'].valid && registrationForm.controls['passwordConfirmation'].touched && !equalPassword(registrationForm.controls['password'].value, registrationForm.controls['passwordConfirmation'].value)">
         Password don't match.
-      </div>
+      </span>
     </div>
-
     <button class="button" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
-    <div class="logIn" >
+    <div class="log-in">
       <button class="button empty">Log in</button>
     </div>
-
   </div>
 </form>
-<div></div>

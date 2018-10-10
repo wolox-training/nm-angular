@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+@import url(https://fonts.google.com/specimen/Roboto?selection.family=Roboto:300,400,500,700,900);
+@import "src/styles.scss";
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -10,9 +11,9 @@
   flex-direction: column;
 }
 
-.formContainer{
-  background-color: #F4F4F4;
-  border-top: 5px solid #0FAAEB;
+.form-container {
+  background-color: $light-gray;
+  border-top: 5px solid $blue-wolox;
   display: grid;
   grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
   grid-template-areas:
@@ -24,25 +25,25 @@
     "field"
     "button"
     "button";
-    margin: 50px 0px;
-    max-width: 400px;
-    width: 100%;
+  margin: 50px 0px;
+  max-width: 400px;
+  width: 100%;
 }
 
-.woloxImage {
+.wolox-image {
   grid-area: imagen;
   margin: auto;
 }
 
-.inputContainer {
+.input-container {
   padding: 20px;
 }
 
-.inputLabel {
+.input-label {
   padding-left: 10px;
 }
 
-.inputField {
+.input-field {
   border: 0;
   border-radius: 8px;
   height: 30px;
@@ -53,19 +54,18 @@
 
 .alert {
   animation: 2s alertAnim forwards;
-  background: #F2EDDA;
   display: inline-block;
-  font-size: .9em;
+  font-size: 14px;
   margin-bottom: 20px;
   padding: 7px;
 }
 
 .button {
-  background-color: #A4CC54;
-  border: 2px solid #A4CC54;
+  background-color: $green-wolox;
+  border: 2px solid $green-wolox;
   border-radius: 8px;
-  color: #FFF;
-  font-size: 15pt;
+  color: $white;
+  font-size: 18px;
   height: 60px;
   margin: auto;
   max-width: 350px;
@@ -77,21 +77,16 @@
 }
 
 .empty {
-  background-color: #F4F4F4;
-  color: #A4CC54;
+  background-color: $disable-gray;
+  color: $green-wolox;
 }
 
-.logIn {
+.log-in {
   align-items: center;
+  border-top: 2px solid $gray;
   display: flex;
   flex-direction: column;
-}
-
-.logIn:before {
-  background: #000;
-  border-top: 2px solid #DCDCDC;
-  content: '';
-  width: 350px;
+  margin: 0 20px;
 }
 
 @keyframes alertAnim {
