@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   passwordConfirmation:string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private httpServ: UserService ) {
 
     this.registrationForm = fb.group({
       'firstName': [null, Validators.required],
@@ -38,37 +38,18 @@ export class RegisterComponent implements OnInit {
     return firstPass === secPass;
   };
 
-  submitRegistration(form, httpServ: UserService) {
-    this.firstName = form.firstName;
-    this.lastName = form.lastName;
-    this.email = form.email;
-    this.password = form.password;
-    this.passwordConfirmation = form.passwordConfirmation;
-
-    /*const registrationRequest = {
+  submitRegistration() {
+    const registrationRequest = {
       user: {
-        first_name: this.firstName,
-        last_name: this.lastName,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.passwordConfirmation,
+        first_name: this.registrationForm.value.firstName,
+        last_name: this.registrationForm.value.lastName,
+        email: this.registrationForm.value.email,
+        password: this.registrationForm.value.password,
+        password_confirmation: this.registrationForm.value.passwordConfirmation,
         locale: "en"
       }
-    }*/
-
-    const registrationRequest = {
-      "user": {
-        "email": "natasha.martinelli+100@wolox.com.ar",
-        "password": "123123123",
-        "password_confirmation": "123123123",
-        "first_name": "Prueba",
-        "last_name": "Usuario",
-        "locale": "en"
-      }
     }
-    console.log(registrationRequest);
-//    httpServ.createUser(registrationRequest).succes((res) => {console.log(res)});
-    UserService.createUser(registrationRequest);
+    this.httpServ.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
   };
 
   ngOnInit() {};

@@ -10,15 +10,13 @@ const headers = new HttpHeaders({
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { };
 
-  posts: any;
-
-  createUser(params) {
-    this.posts = this.http.post(BASE_URL + '/users',{ headers: headers, params: params });
-    return this.posts;
+  createUser(user) {
+    return this.http.post(BASE_URL + '/users', { ...user }, { headers });
   };
 
 };
