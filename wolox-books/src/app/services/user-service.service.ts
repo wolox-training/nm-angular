@@ -19,4 +19,8 @@ export class UserService {
     return this.http.post(BASE_URL + '/users', { ...user }, { headers });
   };
 
+  loginUser(user) {
+    return this.http.post(BASE_URL + '/users/sessions', { user }, { headers });
+  }
+
 };

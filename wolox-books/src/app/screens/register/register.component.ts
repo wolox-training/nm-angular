@@ -7,7 +7,7 @@ const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['../../app.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
@@ -30,12 +30,8 @@ export class RegisterComponent implements OnInit {
     });
   };
 
-  validEmail(emailValue) {
-    return re.test(String(emailValue).toLowerCase());
-  };
-
-  equalPassword(firstPass, secPass) {
-    return firstPass === secPass;
+  equalPassword() {
+    return this.registrationForm.value.password === this.registrationForm.value.passwordConfirmation;
   };
 
   submitRegistration() {
