@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UserService } from '../../services/user-service.service';
 
 const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   passwordConfirmation:string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private httpServ: UserService ) {
 
     this.registrationForm = fb.group({
       'firstName': [null, Validators.required],
@@ -37,24 +38,18 @@ export class RegisterComponent implements OnInit {
     return firstPass === secPass;
   };
 
-  submitRegistration(form) {
-    this.firstName = form.firstName;
-    this.lastName = form.lastName;
-    this.email = form.email;
-    this.password = form.password;
-    this.passwordConfirmation = form.passwordConfirmation;
-
+  submitRegistration() {
     const registrationRequest = {
       user: {
-        first_name: this.firstName,
-        last_name: this.lastName,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.passwordConfirmation,
+        first_name: this.registrationForm.value.firstName,
+        last_name: this.registrationForm.value.lastName,
+        email: this.registrationForm.value.email,
+        password: this.registrationForm.value.password,
+        password_confirmation: this.registrationForm.value.passwordConfirmation,
         locale: "en"
       }
     }
-    console.log(registrationRequest);
+    this.httpServ.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
   };
 
   ngOnInit() {};
