@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   passwordConfirmation:string = '';
 
-  constructor(private fb: FormBuilder, private httpServ: UserService ) {
+  constructor(private fb: FormBuilder, private userService: UserService ) {
 
     this.registrationForm = fb.group({
       'firstName': [null, Validators.required],
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
         locale: "en"
       }
     }
-    this.httpServ.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
+    this.userService.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
   };
 
   ngOnInit() {};
