@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
         locale: "en"
       }
     }
-    this.httpServ.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
+    this.userService.createUser(registrationRequest).subscribe(() => { console.log('succes'); });
   };
 
   ngOnInit() {};
