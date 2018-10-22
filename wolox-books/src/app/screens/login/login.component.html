@@ -7,7 +7,7 @@
       <span class="alert" *ngIf="!signInForm.controls['email'].valid && signInForm.controls['email'].touched">
         Required field.
       </span>
-      <span class="alert" *ngIf="signInForm.controls['email'].valid && signInForm.controls['email'].touched && !validEmail(signInForm.controls['email'].value)">
+      <span class="alert" *ngIf="signInForm.controls['email'].valid && signInForm.controls['email'].touched && !validEmail()">
         Invalid format.
       </span>
     </div>
@@ -20,7 +20,7 @@
     </div>
     <button class="button" type="submit" [disabled]="signInForm.invalid">Log in</button>
     <div class="log-in">
-      <button class="button empty">Sign up</button>
+      <button class="button empty" routerLink="/sign-up" >Sign up</button>
     </div>
   </div>
 </form>

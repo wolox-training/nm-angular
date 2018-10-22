@@ -18,17 +18,17 @@
     <div class="input-container">
       <label class="input-label"> Email </label>
       <input class="input-field" type="email" formControlName="email">
-      <span class="alert" *ngIf="!form.controls['email'].valid && form.controls['email'].touched">
+      <span class="alert" *ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
         Required field.
       </span>
-      <span class="alert" *ngIf="form.controls['email'].valid && form.controls['email'].touched && !validEmail(form.controls['email'].value)">
+      <span class="alert" *ngIf="registrationForm.controls['email'].valid && registrationForm.controls['email'].touched && !validEmail()">
         Invalid format.
       </span>
     </div>
     <div class="input-container">
       <label class="input-label"> Password </label>
       <input class="input-field" type="password" formControlName="password">
-      <span class="alert" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+      <span class="alert" *ngIf="!registrationForm.controls['password'].valid && registrationForm.controls['password'].touched">
         Required field.
       </span>
     </div>
@@ -44,7 +44,7 @@
     </div>
     <button class="button" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
     <div class="log-in">
-      <button class="button empty">Log in</button>
+      <button class="button empty" routerLink="/login">Log in</button>
     </div>
   </div>
 </form>
