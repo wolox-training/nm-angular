@@ -20,7 +20,7 @@ export class UserService {
   };
 
   loginUser(user) {
-    return this.http.post(BASE_URL + '/users/sessions', { user }, { headers });
+    return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers });
   }
 
 };

@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   passwordConfirmation:string = '';
 
-  constructor(private fb: FormBuilder, private httpServ: UserService, private validation: Validations ) {
+  constructor(private fb: FormBuilder, private userService: UserService, private validation: Validations ) {
     this.registrationForm = fb.group({
       'firstName': [null, Validators.required],
       'lastName': [null, Validators.required],
