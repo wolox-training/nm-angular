@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
+import { UnauthGuard } from './unauth.guard';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +28,10 @@ import { BooksComponent } from './screens/auth/books/books.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    UnauthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

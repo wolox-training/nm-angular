@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { UnauthGuard } from './unauth.guard';
 
 import { RegisterComponent }  from './screens/unauth/register/register.component';
 import { LoginComponent } from './screens/unauth/login/login.component';
@@ -17,11 +18,13 @@ const appRoutes: Routes = [
     children: [
       {
         path: 'sign-up',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [UnauthGuard]
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [UnauthGuard]
       }
     ]
   }
