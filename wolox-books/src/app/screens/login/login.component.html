@@ -1,6 +1,8 @@
 <form class="container sign-up" [formGroup]="signInForm" (ngSubmit)="submitLogin()">
   <div class="form-container sign-up">
-    <img src="assets/wolox.png" alt="Wolox" class="wolox-image">
+    <div class="wolox-image">
+      <img src="assets/wolox.png" alt="Wolox" class="wolox-image">
+    </div>
     <div class="input-container">
       <label class="input-label"> Email </label>
       <input class="input-field" type="email" formControlName="email">
@@ -19,7 +21,7 @@
       </span>
     </div>
     <button class="button" type="submit" [disabled]="signInForm.invalid">Log in</button>
-    <div class="log-in">
+    <div class="green-button">
       <button class="button empty" routerLink="/sign-up" >Sign up</button>
     </div>
   </div>

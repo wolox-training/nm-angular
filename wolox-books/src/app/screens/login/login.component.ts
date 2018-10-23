@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 import { UserService } from '../../services/user-service.service';
+
 import { Validations } from '../../utils/validations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../../app.component.scss']
+  styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   signInForm: FormGroup;
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
   email:string = '';
   password:string = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService, private validation: Validations ) {
+  constructor(private fb: FormBuilder, private userService: UserService, private validation: Validations) {
 
     this.signInForm = fb.group({
       'email': [null, Validators.required],
@@ -32,9 +35,7 @@ export class LoginComponent implements OnInit {
       email: this.signInForm.value.email,
       password: this.signInForm.value.password
     }
-    this.userService.loginUser(session).subscribe((response) => {
-      console.log(response.access_token);
-    });
+    this.userService.loginUser(session);
   };
 
   ngOnInit() {};

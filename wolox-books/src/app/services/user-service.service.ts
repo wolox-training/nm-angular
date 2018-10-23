@@ -1,8 +1,10 @@
+//import { Component } from '@angular/core';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
-const headers = new HttpHeaders({
+let headers = new HttpHeaders({
   'Content-Type':'application/json',
   'Accept':'application/json'
 });
@@ -20,7 +22,11 @@ export class UserService {
   };
 
   loginUser(user) {
-    return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers });
-  }
+    return
+    this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
+        headers.append('access_token', response.access_token);
+        console.log(response.access_token);
+      });
+  };
 
 };
