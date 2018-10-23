@@ -38,10 +38,8 @@ export class LoginComponent implements OnInit {
       email: this.signInForm.value.email,
       password: this.signInForm.value.password
     }
-    this.userService.loginUser(session).subscribe(response => {
-      console.log(response.access_token);
-      this.router.navigate(['/auth']);
-    });
+    this.userService.loginUser(session);
+    this.router.navigate(['auth']);
   };
 
   ngOnInit() {};
