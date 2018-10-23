@@ -24,13 +24,17 @@ export class UserService {
 
   loginUser(user) {
     return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
-        //headers.append('access_token', response.access_token); +
+        //headers.append('access_token', response.access_token); 
         this.localStorage.setValue("access_token", response.access_token);
       });
   };
 
   logoutUser() {
     return this.localStorage.clearStorage();
+  };
+
+  loggedIn() {
+    return !!this.localStorage.getValue("access_token");
   };
 
 };
