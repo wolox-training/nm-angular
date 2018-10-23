@@ -8,16 +8,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './screens/register/register.component';
-import { LoginComponent } from './screens/login/login.component';
-import { AuthComponent } from './screens/auth/auth.component';
+import { RegisterComponent } from './screens/unauth/register/register.component';
+import { LoginComponent } from './screens/unauth/login/login.component';
+import { BooksComponent } from './screens/auth/books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    AuthComponent
+    BooksComponent
   ],
   imports: [
     BrowserModule,

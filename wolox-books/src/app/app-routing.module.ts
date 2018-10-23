@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RegisterComponent }  from './screens/register/register.component';
-import { LoginComponent } from './screens/login/login.component';
-import { AuthComponent } from './screens/auth/auth.component';
+import { RegisterComponent }  from './screens/unauth/register/register.component';
+import { LoginComponent } from './screens/unauth/login/login.component';
+import { BooksComponent } from './screens/auth/books/books.component';
 
 const appRoutes: Routes = [
   {
-    path: 'sign-up',
-    component: RegisterComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'auth',
-    component: AuthComponent
+    path:'books',
+    component: BooksComponent
   },
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    children: [
+      {
+        path: 'sign-up',
+        component: RegisterComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ]
   }
 ];
 

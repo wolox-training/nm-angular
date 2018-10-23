@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { UserService } from '../../services/user-service.service';
+import { UserService } from '../../../services/user-service.service';
 
-import { Validations } from '../../utils/validations';
+import { Validations } from '../../../utils/validations';
 
-import { AuthComponent } from '../../screens/auth/auth.component';
+import { BooksComponent } from '../../../screens/auth/books/books.component';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       password: this.signInForm.value.password
     }
     this.userService.loginUser(session);
-    this.router.navigate(['auth']);
+    this.router.navigate(['books']);
   };
 
   ngOnInit() {};
