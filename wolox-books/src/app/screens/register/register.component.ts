@@ -6,7 +6,7 @@ import { Validations } from '../../utils/validations';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../../app.component.scss']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 

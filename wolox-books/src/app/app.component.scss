@@ -14,35 +14,15 @@
 .form-container {
   background-color: $light-gray;
   border-top: 5px solid $blue-wolox;
-  display: grid;
-  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
-  grid-template-areas:
-    "imagen"
-    "field"
-    "field"
-    "field"
-    "field"
-    "field"
-    "button"
-    "button";
   margin: 50px 0px;
   max-width: 400px;
   width: 100%;
 }
 
-.form-container.sign-up {
-  grid-template-rows: 100px 100px 100px 100px 100px;
-  grid-template-areas:
-  "imagen"
-  "field"
-  "field"
-  "button"
-  "button";
-}
-
 .wolox-image {
-  grid-area: imagen;
-  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-container {
@@ -77,21 +57,22 @@
   color: $white;
   font-size: 18px;
   height: 60px;
-  margin: auto;
+  margin: 20px;
   max-width: 350px;
   width: 100%;
+
+  &:disabled {
+    background-color: $invalid-gray;
+  }
 }
 
-.button:disabled {
-  background-color: grey;
-}
 
 .empty {
   background-color: $disable-gray;
   color: $green-wolox;
 }
 
-.log-in {
+.green-button {
   align-items: center;
   border-top: 2px solid $gray;
   display: flex;
