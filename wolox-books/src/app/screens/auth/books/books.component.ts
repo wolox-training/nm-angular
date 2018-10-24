@@ -6,8 +6,6 @@ import { BooksService } from '../../../services/books-service.service';
 
 import { LoginComponent } from '../../../screens/unauth/login/login.component';
 
-let booksToShow = {};
-
 @Component({
   selector: 'app-auth',
   templateUrl: './books.component.html',
@@ -16,6 +14,8 @@ let booksToShow = {};
 
 
 export class BooksComponent implements OnInit {
+
+booksToShow: any;
 
   constructor(private userService: UserService, private router: Router, private booksService: BooksService ) { }
 
@@ -26,8 +26,7 @@ export class BooksComponent implements OnInit {
 
   bringBooks() {
     this.booksService.bringAllBooks().subscribe(response => {
-      console.log(response);
-      booksToShow = response;
+      this.booksToShow = response;
     });
   };
 
