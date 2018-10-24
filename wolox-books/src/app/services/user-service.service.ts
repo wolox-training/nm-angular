@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
-let headers = new HttpHeaders({
+const headers = new HttpHeaders({
   'Content-Type':'application/json',
   'Accept':'application/json'
 });
