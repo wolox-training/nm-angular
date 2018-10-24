@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserService } from '../../services/user-service.service';
-
-const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+import { Validations } from '../../utils/validations';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +18,7 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   passwordConfirmation:string = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService ) {
-
+  constructor(private fb: FormBuilder, private userService: UserService, private validation: Validations ) {
     this.registrationForm = fb.group({
       'firstName': [null, Validators.required],
       'lastName': [null, Validators.required],
@@ -30,12 +28,12 @@ export class RegisterComponent implements OnInit {
     });
   };
 
-  validEmail(emailValue) {
-    return re.test(String(emailValue).toLowerCase());
+  validEmail() {
+    return this.validation.validEmail(this.registrationForm.value.email);
   };
 
-  equalPassword(firstPass, secPass) {
-    return firstPass === secPass;
+  equalPassword() {
+    return this.registrationForm.value.password === this.registrationForm.value.passwordConfirmation;
   };
 
   submitRegistration() {

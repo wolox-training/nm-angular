@@ -1,0 +1,12 @@
+@import "./src/scss/application.scss";
+@import "./src/app/app.component.scss";
+
+.form-container {
+  background-color: $light-gray;
+  border-top: 5px solid $blue-wolox;
+  grid-template-columns: 400px;
+  grid-template-rows: 100px 100px 100px 100px 100px;
+  margin: 50px 0px;
+  max-width: 400px;
+  width: 100%;
+}

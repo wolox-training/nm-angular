@@ -1,0 +1,84 @@
+@import url(https://fonts.google.com/specimen/Roboto?selection.family=Roboto:300,400,500,700,900);
+@import "src/scss/application.scss";
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.wolox-image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  padding: 20px;
+}
+
+.input-label {
+  padding-left: 10px;
+}
+
+.input-field {
+  border: 0;
+  border-radius: 8px;
+  height: 30px;
+  margin-top: 10px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.alert {
+  animation: 2s alertAnim forwards;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 7px;
+}
+
+.button {
+  background-color: $green-wolox;
+  border: 2px solid $green-wolox;
+  border-radius: 8px;
+  color: $white;
+  font-size: 18px;
+  height: 60px;
+  margin: 20px;
+  max-width: 350px;
+  width: 100%;
+
+  &:disabled {
+    background-color: $invalid-gray;
+  }
+}
+
+
+.empty {
+  background-color: $disable-gray;
+  color: $green-wolox;
+}
+
+.green-button {
+  align-items: center;
+  border-top: 2px solid $gray;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+@keyframes alertAnim {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,3 +1,28 @@
-<p>
-  login works!
-</p>
+<form class="container sign-up" [formGroup]="signInForm" (ngSubmit)="submitLogin()">
+  <div class="form-container sign-up">
+    <div class="wolox-image">
+      <img src="assets/wolox.png" alt="Wolox" class="wolox-image">
+    </div>
+    <div class="input-container">
+      <label class="input-label"> Email </label>
+      <input class="input-field" type="email" formControlName="email">
+      <span class="alert" *ngIf="!signInForm.controls['email'].valid && signInForm.controls['email'].touched">
+        Required field.
+      </span>
+      <span class="alert" *ngIf="signInForm.controls['email'].valid && signInForm.controls['email'].touched && !validEmail()">
+        Invalid format.
+      </span>
+    </div>
+    <div class="input-container">
+      <label class="input-label"> Password </label>
+      <input class="input-field" type="password" formControlName="password">
+      <span class="alert" *ngIf="!signInForm.controls['password'].valid && signInForm.controls['password'].touched">
+        Required field.
+      </span>
+    </div>
+    <button class="button" type="submit" [disabled]="signInForm.invalid">Log in</button>
+    <div class="green-button">
+      <button class="button empty" routerLink="/sign-up" >Sign up</button>
+    </div>
+  </div>
+</form>

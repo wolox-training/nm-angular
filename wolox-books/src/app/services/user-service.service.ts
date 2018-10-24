@@ -1,3 +1,5 @@
+//import { Component } from '@angular/core';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -17,6 +19,14 @@ export class UserService {
 
   createUser(user) {
     return this.http.post(BASE_URL + '/users', { ...user }, { headers });
+  };
+
+  loginUser(user) {
+    return
+    this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
+        headers.append('access_token', response.access_token);
+        console.log(response.access_token);
+      });
   };
 
 };
