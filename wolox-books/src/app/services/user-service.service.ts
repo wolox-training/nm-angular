@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from './local-storage.service';
 
 const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
-let headers = new HttpHeaders({
+const headers = new HttpHeaders({
   'Content-Type':'application/json',
   'Accept':'application/json'
 });
