@@ -22,7 +22,7 @@
 .wolox-image {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  margin: auto;
 }
 
 .input-container {
@@ -65,7 +65,6 @@
     background-color: $invalid-gray;
   }
 }
-
 
 .empty {
   background-color: $disable-gray;

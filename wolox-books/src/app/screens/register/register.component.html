@@ -1,8 +1,6 @@
 <form class="container" [formGroup]="registrationForm" (ngSubmit)="submitRegistration()">
   <div class="form-container log-in">
-    <div class="wolox-image">
-      <img src="assets/wolox.png" alt="Wolox" >
-    </div>
+    <img src="assets/wolox.png" alt="Wolox" class="wolox-image"/>
     <div class="input-container">
       <label class="input-label"> First name </label>
       <input class="input-field" type="text" formControlName="firstName">
