@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { UserService } from '../../../services/user-service.service';
+import { UserService } from '../../services/user-service.service';
 
-import { Validations } from '../../../utils/validations';
+import { Validations } from '../../utils/validations';
 
-import { BooksComponent } from '../../../screens/auth/books/books.component';
+import { BooksComponent } from '../../screens/books/books.component';
 
 @Component({
   selector: 'app-login',

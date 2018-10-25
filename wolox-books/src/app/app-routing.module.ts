@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { UnauthGuard } from './unauth.guard';
 
-import { RegisterComponent }  from './screens/unauth/register/register.component';
-import { LoginComponent } from './screens/unauth/login/login.component';
-import { BooksComponent } from './screens/auth/books/books.component';
+import { RegisterComponent }  from './screens/register/register.component';
+import { LoginComponent } from './screens/login/login.component';
+import { BooksComponent } from './screens/books/books.component';
 
 const appRoutes: Routes = [
   {
