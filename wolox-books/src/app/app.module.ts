@@ -16,13 +16,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
 import { BooksComponent } from './screens/books/books.component';
+import { BookUnit } from './screens/components/book-unit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    BooksComponent
+    BooksComponent,
+    BookUnit
   ],
   imports: [
     BrowserModule,

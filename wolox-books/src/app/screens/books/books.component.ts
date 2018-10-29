@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { UserService } from '../../services/user-service.service';
 import { LoginComponent } from '../../screens/login/login.component';
 import { BooksService } from '../../services/books-service.service';
+import { BookUnit } from '../../screens/components/book-unit.component';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './books.component.html',
@@ -13,7 +15,7 @@ import { BooksService } from '../../services/books-service.service';
 
 export class BooksComponent implements OnInit {
 
-booksToShow: any;
+  booksToShow: any;
 
   constructor(private userService: UserService, private router: Router, private booksService: BooksService ) { }
 
