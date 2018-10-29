@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { UserService } from '../../../services/user-service.service';
-import { BooksService } from '../../../services/books-service.service';
-
-import { LoginComponent } from '../../../screens/unauth/login/login.component';
-
+import { UserService } from '../../services/user-service.service';
+import { LoginComponent } from '../../screens/login/login.component';
+import { BooksService } from '../../services/books-service.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './books.component.html',
