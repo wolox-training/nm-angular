@@ -14,7 +14,7 @@
 .wolox-image {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  margin: auto;
 }
 
 .input-container {
@@ -58,7 +58,6 @@
   }
 }
 
-
 .empty {
   background-color: $disable-gray;
   color: $green-wolox;
@@ -70,6 +69,10 @@
   display: flex;
   flex-direction: column;
   margin: 0 20px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 @keyframes alertAnim {
