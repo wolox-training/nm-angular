@@ -4,4 +4,10 @@
     Logout
   </button>
 </header>
-<book-unit [books]="booksToShow"></book-unit>
+<div *ngIf="showBooksList;then booksList else booksDetail"></div>
+<ng-template #booksList>
+  <book-list [books]="booksToShow"></book-list>
+</ng-template>
+<ng-template #booksDetail>
+  <book-detail></book-detail>
+</ng-template>

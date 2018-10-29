@@ -4,7 +4,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { UserService } from '../../services/user-service.service';
 import { LoginComponent } from '../../screens/login/login.component';
 import { BooksService } from '../../services/books-service.service';
-import { BookUnit } from '../../screens/components/book-unit.component';
+import { BookList } from '../../screens/components/book-list/book-list.component';
+import { BookDetail } from '../../screens/components/book-detail/book-detail.component';
 
 @Component({
   selector: 'app-auth',
@@ -12,10 +13,10 @@ import { BookUnit } from '../../screens/components/book-unit.component';
   styleUrls: ['./books.component.scss']
 })
 
-
 export class BooksComponent implements OnInit {
 
   booksToShow: any;
+  showBooksList: boolean = false;
 
   constructor(private userService: UserService, private router: Router, private booksService: BooksService ) { }
 
@@ -25,9 +26,10 @@ export class BooksComponent implements OnInit {
   };
 
   bringBooks() {
-    this.booksService.bringAllBooks().subscribe(response => {
-      this.booksToShow = response;
-    });
+//    this.booksService.bringAllBooks().subscribe(response => {
+//this.booksToShow = response;
+//});
+    this.booksToShow = this.booksService.bringAllBooks();
   };
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 @import "src/scss/application.scss";
 @import "src/app/app.component.scss";
+@import "src/app/screens/books/books.component.scss";
 
 .books-container {
   display: grid;
@@ -16,14 +17,6 @@
   background: $light-gray;
   display: flex;
   flex-direction: column;
-}
-
-.book-image {
-  background: $white;
-  max-height: 150px;
-  max-width: 180px;
-  width: auto;
-  height: 100%;
 }
 
 .text-1{

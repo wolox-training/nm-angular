@@ -5,7 +5,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { LocalStorageService } from './local-storage.service';
 
-const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
+const BASE_URL = 'http://localhost:3000/posts';
+//const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
 const headers = new HttpHeaders({
   'Content-Type':'application/json',
   'Accept':'application/json'
@@ -24,8 +25,11 @@ export class UserService {
   };
 
   loginUser(user) {
-    return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
-        this.localStorage.setValue("access_token", response["access_token"]);
+//    return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
+    return this.http.get(BASE_URL, { ...user }, { headers }).subscribe(response => {
+        console.log(response);
+        //this.localStorage.setValue("access_token", response["access_token"]);
+        this.localStorage.setValue("access_token", response["email"]);
         this.router.navigate(['books']);
       });
   };
