@@ -6,7 +6,7 @@ import { UserService } from '../../services/user-service.service';
 
 import { Validations } from '../../utils/validations';
 
-import { AuthComponent } from '../../screens/auth/auth.component';
+import { BooksComponent } from '../../screens/books/books.component';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       password: this.signInForm.value.password
     }
     this.userService.loginUser(session);
-    this.router.navigate(['auth']);
+    this.router.navigate(['books']);
   };
 
   ngOnInit() {};

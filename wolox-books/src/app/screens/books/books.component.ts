@@ -6,10 +6,10 @@ import { LoginComponent } from '../../screens/login/login.component';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class BooksComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router ) { }
 
