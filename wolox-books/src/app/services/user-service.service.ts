@@ -24,7 +24,7 @@ export class UserService {
 
   loginUser(user) {
     return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
-        this.localStorage.setValue("access_token", response.access_token);
+        this.localStorage.setValue("access_token", response["access_token"]);
       });
   };
 
