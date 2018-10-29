@@ -1,0 +1,33 @@
+@import "src/scss/application.scss";
+@import "src/app/app.component.scss";
+
+.books-container {
+  display: grid;
+  grid-auto-rows: 250px;
+  grid-gap: 15px;
+  grid-template-columns: repeat(4, 200px);
+  max-width: 800px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.books-list {
+  padding: 20px;
+  background: $light-gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-image {
+  background: $white;
+  max-height: 150px;
+  max-width: 180px;
+  width: auto;
+  height: 100%;
+}
+
+.text-1{
+  padding: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

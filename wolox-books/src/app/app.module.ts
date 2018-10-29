@@ -6,7 +6,9 @@ import { AuthGuard } from './auth.guard';
 import { UnauthGuard } from './unauth.guard';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,13 +16,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
 import { BooksComponent } from './screens/books/books.component';
+import { BookUnit } from './screens/components/book-unit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    BooksComponent
+    BooksComponent,
+    BookUnit
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,12 @@ import { BooksComponent } from './screens/books/books.component';
   ],
   providers: [
     AuthGuard,
-    UnauthGuard
+    UnauthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

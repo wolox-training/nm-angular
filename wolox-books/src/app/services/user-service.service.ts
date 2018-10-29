@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { LocalStorageService } from './local-storage.service';
-import { CanActivate, Router } from '@angular/router';
 
 const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
 const headers = new HttpHeaders({
@@ -26,6 +26,7 @@ export class UserService {
   loginUser(user) {
     return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
         this.localStorage.setValue("access_token", response["access_token"]);
+        this.router.navigate(['books']);
       });
   };
 
@@ -35,6 +36,10 @@ export class UserService {
 
   loggedIn() {
     return !!this.localStorage.getValue("access_token");
+  };
+
+  getToken() {
+    return this.localStorage.getValue("access_token");
   };
 
   checkUserState(condition, redirectionRoute) {
