@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { LocalStorageService } from './local-storage.service';
+import { CanActivate, Router } from '@angular/router';
 
 const BASE_URL = 'https://wbooks-api-stage.herokuapp.com/api/v1';
 const headers = new HttpHeaders({
@@ -40,6 +41,15 @@ export class UserService {
 
   getToken() {
     return this.localStorage.getValue("access_token");
+  };
+  
+  checkUserState(condition, redirectionRoute) {
+    if (condition) {
+      return true;
+    } else {
+      this.router.navigate([redirectionRoute]);
+      return false;
+    }
   };
 
 };
