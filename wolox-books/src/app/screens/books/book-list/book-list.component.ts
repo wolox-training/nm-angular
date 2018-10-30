@@ -22,10 +22,6 @@ export class BookListComponent implements OnInit {
     });
   };
 
-  bookSelected(bookId) {
-    this.router.navigate([`books/${bookId}`]);
-  };
-
   ngOnInit() {
     this.bringBooks();
   };

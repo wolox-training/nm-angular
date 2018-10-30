@@ -1,7 +1,7 @@
 <header-component></header-component>
 <div class="books-container">
   <a *ngFor="let book of booksToShow" class="books-list" routerLink="/books/{{book.id}}">
-    <img src="{{book.image_url}}" alt="Book Image" class="book-image" (click)="bookSelected(book.id)">
+    <img src="{{book.image_url}}" alt="Book Image" class="book-image">
     <span class="bold text-1">{{book.title}}</span>
     <span class="text-1">{{book.author}}</span>
   </a>
