@@ -20,9 +20,7 @@ export class BookDetailComponent implements OnInit {
     //this.booksService.bringBookDetail(bookId).subscribe(response => {
       //mapeo de ser necesario
     //});
-    console.log(bookId);
     this.book = this.booksService.bringBookDetail(bookId);
-    console.log(this.book);
   };
 
   ngOnInit() {
