@@ -15,18 +15,18 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { RegisterComponent } from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
-import { BooksComponent } from './screens/books/books.component';
-import { BookList } from './screens/components/book-list/book-list.component';
-import { BookDetail } from './screens/components/book-detail/book-detail.component';
+import { HeaderComponent } from './screens/components/header/header.component';
+import { BookListComponent } from './screens/books/book-list/book-list.component';
+import { BookDetailComponent } from './screens/books/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    BooksComponent,
-    BookList,
-    BookDetail
+    HeaderComponent,
+    BookListComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

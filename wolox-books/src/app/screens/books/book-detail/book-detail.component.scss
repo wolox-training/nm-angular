@@ -1,6 +1,6 @@
 @import "src/scss/application.scss";
 @import "src/app/app.component.scss";
-@import "src/app/screens/books/books.component.scss";
+//@import "src/app/screens/books/books.component.scss";
 
 .book-container {
   display: flex;
@@ -24,7 +24,8 @@
 }
 
 .pad-20 {
-  padding: 20px;
+  margin: 20px 10px;
+  padding: 10px 0;
 }
 
 .pad-5 {
