@@ -17,10 +17,9 @@ export class BookListComponent implements OnInit {
   constructor(private booksService: BooksService, private router: Router) {}
 
   bringBooks() {
-//    this.booksService.bringAllBooks().subscribe(response => {
-//this.booksToShow = response;
-//});
-    this.booksToShow = this.booksService.bringAllBooks();
+    this.booksService.bringAllBooks().subscribe(response => {
+      this.booksToShow = response;
+    });
   };
 
   bookSelected(bookId) {
