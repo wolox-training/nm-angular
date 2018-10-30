@@ -19,6 +19,6 @@ export class BooksService {
   };
 
   bringBookDetail(bookId) {
-    return this.http.get(BASE_URL+`/${bookId}`, { headers })
+    return this.http.get(`${BASE_URL}/${bookId}`, { headers })
   };
 }
