@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="59527842640c544fe452b17f6227ffc351ed6eec" datatype="html">
+        <source>Wolox</source>
+        <target>Wolox</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/components/header/header.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0f4914f5caefbc549aa6bf6dc12b4dbe6a0a4bff" datatype="html">
+        <source>Logout</source>
+        <target>Cerrar sesión</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/components/header/header.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d13d9dbdccdfab2b2b3296fd403d05e60d2a45f8" datatype="html">
+        <source>Book Image</source>
+        <target>Tapa libro</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/books/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="56d45a21cafa61bf132afdd7ddb541d5b49d9fac" datatype="html">
+        <source>Book Author: </source>
+        <target>Autor del libro: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/books/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4819074f1b3d12ac3a065627b5da837c7ac5b3b3" datatype="html">
+        <source>Publisher: </source>
+        <target>Editorial: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/books/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="07881101fd2abc1dab311061f6958780f475b43d" datatype="html">
+        <source>Year of publication: </source>
+        <target>Año de publicación: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/screens/books/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

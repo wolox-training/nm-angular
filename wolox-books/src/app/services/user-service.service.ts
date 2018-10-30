@@ -26,8 +26,7 @@ export class UserService {
 
   loginUser(user) {
 //    return this.http.post(BASE_URL + '/users/sessions', { ...user }, { headers }).subscribe(response => {
-    return this.http.get(BASE_URL, { ...user }, { headers }).subscribe(response => {
-        console.log(response);
+    return this.http.get(BASE_URL, { headers }).subscribe(response => {
         //this.localStorage.setValue("access_token", response["access_token"]);
         this.localStorage.setValue("access_token", response["email"]);
         this.router.navigate(['books']);
