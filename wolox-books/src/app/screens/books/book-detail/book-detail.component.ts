@@ -17,10 +17,9 @@ export class BookDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private booksService: BooksService) {};
 
   bookSelected(bookId) {
-    //this.booksService.bringBookDetail(bookId).subscribe(response => {
-      //mapeo de ser necesario
-    //});
-    this.book = this.booksService.bringBookDetail(bookId);
+    this.booksService.bringBookDetail(bookId).subscribe(response => {
+      this.book = response;
+    });
   };
 
   ngOnInit() {
