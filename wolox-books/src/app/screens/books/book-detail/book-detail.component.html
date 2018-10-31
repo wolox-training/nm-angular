@@ -1,6 +1,6 @@
 <header-component></header-component>
 <div class="book-container row back-grey">
-  <img src="{{book.image_url}}" alt="Book Image" class="book-image margin-20" (click)="bookSelected(book.id)">
+  <img src="{{book.image_url}}" alt="Book Image" class="book-image margin-20" (click)="bookSelected(book.id)" i18n-alt>
   <div class="column width-100">
     <div class="row pad-20 under-green-line">
       <span class="bold text-1 pad-right-5">{{book.title}}</span>
@@ -8,15 +8,15 @@
     </div>
     <div class="pad-20">
       <div class="row pad-5">
-        <span class="text-1 bold">Book Author: </span>
+        <span class="text-1 bold" i18n>Book Author: </span>
         <span class="text-1">{{book.author}}</span>
       </div>
       <div class="row pad-5">
-        <span class="text-1 bold">Publisher: </span>
+        <span class="text-1 bold" i18n>Publisher: </span>
         <span class="text-1">{{book.publisher}}</span>
       </div>
       <div class="row pad-5">
-        <span class="text-1 bold">Year of publication: </span>
+        <span class="text-1 bold" i18n>Year of publication: </span>
         <span class="text-1">{{book.year}}</span>
       </div>
     </div>
