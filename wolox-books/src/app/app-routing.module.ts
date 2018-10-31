@@ -5,13 +5,23 @@ import { UnauthGuard } from './unauth.guard';
 
 import { RegisterComponent }  from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
-import { BooksComponent } from './screens/books/books.component';
+import { BookListComponent } from './screens/books/book-list/book-list.component';
+import { BookDetailComponent } from './screens/books/book-detail/book-detail.component';
 
 const appRoutes: Routes = [
   {
     path:'books',
-    component: BooksComponent,
-    canActivate: [AuthGuard]
+    children: [
+      {
+        path: '',
+        component: BookListComponent,
+        canActivate: [AuthGuard]
+      },{
+        path: ':id',
+        component: BookDetailComponent,
+        canActivate: [AuthGuard]
+      }
+    ]
   },
   {
     path: '',

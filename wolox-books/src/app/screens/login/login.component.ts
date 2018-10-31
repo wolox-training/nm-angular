@@ -6,7 +6,7 @@ import { UserService } from '../../services/user-service.service';
 
 import { Validations } from '../../utils/validations';
 
-import { BooksComponent } from '../../screens/books/books.component';
+import { BookListComponent } from '../../screens/books/book-list/book-list.component';
 
 @Component({
   selector: 'app-login',
