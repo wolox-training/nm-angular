@@ -1,36 +1,36 @@
 <template lang="pug">
 .container
-  form.form-container(@submit.prevent="onSubmit")
-    img(src="../assets/wolox.png" alt="Wolox" class="wolox-image")
+  form.form-container(@submit.prevent="onSubmit" novalidate)
+    img.wolox-image(src="../assets/wolox.png" alt="Wolox")
     .input-container
       label.input-label
         | First name
-      input.input-field(type="text" v-model="firstName" required)
+      input.input-field(type="text" v-model="firstName")
     .input-container
       label.input-label
         | Last name
-      input.input-field(type="text" v-model="lastName" required)
+      input.input-field(type="text" v-model="lastName")
     .input-container
       label.input-label
         | Email
-      input.input-field(type="email" v-model="email" required)
+      input.input-field(type="email" v-model="email")
     .input-container
       label.input-label
         | Password
-      input.input-field(type="password" v-model="password" required)
+      input.input-field(type="password" v-model="password")
     .input-container
       label.input-label
         | Confirm password
-      input.input-field(type="password" v-model="confirmPassword" required)
-    .green-button
-      button.submit-button(type="submit")
-        | Sign up
-    .green-button
-      button.login-button
-        | Log in
+      input.input-field(type="password" v-model="confirmPassword")
+    button.green-button.submit-button(type="submit")
+      | Sign up
+    button.green-button.login-button
+      | Log in
 </template>
 
 <style lang="scss">
+@import '../scss/aplication.scss';
+
 .container {
   align-items: center;
   display: flex;
