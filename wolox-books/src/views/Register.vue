@@ -6,22 +6,32 @@
       label.input-label
         | First name
       input.input-field(type="text" v-model="firstName")
+      span.errorMessage(v-if="$v.firstName.$invalid && submitted")
+        | Invalid field.
     .input-container
       label.input-label
         | Last name
       input.input-field(type="text" v-model="lastName")
+      span.errorMessage(v-if="$v.lastName.$invalid && submitted")
+        | Invalid field.
     .input-container
       label.input-label
         | Email
       input.input-field(type="email" v-model="email")
+      span.errorMessage(v-if="$v.email.$invalid && submitted")
+        | Invalid field.
     .input-container
       label.input-label
         | Password
       input.input-field(type="password" v-model="password")
+      span.errorMessage(v-if="$v.password.$invalid && submitted")
+        | Invalid field. Upper letters and numbers are required.
     .input-container
       label.input-label
         | Confirm password
       input.input-field(type="password" v-model="confirmPassword")
+      span.errorMessage(v-if="$v.confirmPassword.$invalid && submitted")
+        | password do not match.
     button.green-button.submit-button(type="submit")
       | Sign up
     button.green-button.login-button
@@ -29,6 +39,9 @@
 </template>
 
 <script>
+import { required, email, sameAs, helpers } from 'vuelidate/lib/validators'
+const validatePassword = helpers.regex('validatePassword', /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$/)
+
 export default {
   name: 'register',
   data () {
@@ -38,24 +51,47 @@ export default {
       email: null,
       password: null,
       confirmPassword: null,
-      locale: 'en'
+      locale: 'en',
+      submitted: false
     }
   },
   methods: {
     onSubmit() {
-      const productReview = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        password: this.password,
-        confirmPassword: this.confirmPassword
+      this.submitted = true
+      if (!this.$v.$invalid) {
+        const productReview = {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          password: this.password,
+          confirmPassword: this.confirmPassword
+        }
+        console.log(productReview)
+        this.firstName = null
+        this.lastName = null
+        this.email = null
+        this.password = null
+        this.confirmPassword = null
       }
-      console.log(productReview)
-      this.firstName = null
-      this.lastName = null
-      this.email = null
-      this.password = null
-      this.confirmPassword = null
+    }
+  },
+  validations: {
+    firstName: {
+      required
+    },
+    lastName: {
+      required
+    },
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      validatePassword
+    },
+    confirmPassword: {
+      samePassword: sameAs('password')
     }
   }
 }
@@ -125,5 +161,9 @@ export default {
   margin: 20px;
   max-width: 350px;
   width: 100%;
+}
+
+.errorMessage {
+  padding: 5px 10px 0;
 }
 </style>
