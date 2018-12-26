@@ -3,6 +3,6 @@
     router-view
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import 'scss/aplication.scss';
 </style>

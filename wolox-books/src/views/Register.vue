@@ -38,7 +38,7 @@ export default {
       email: null,
       password: null,
       confirmPassword: null,
-      locale: "en"
+      locale: 'en'
     }
   },
   methods: {
@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../scss/aplication.scss';
 
 .container {
