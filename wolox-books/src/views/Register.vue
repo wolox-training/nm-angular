@@ -28,6 +28,39 @@
       | Log in
 </template>
 
+<script>
+export default {
+  name: 'register',
+  data () {
+    return {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      confirmPassword: null,
+      locale: "en"
+    }
+  },
+  methods: {
+    onSubmit() {
+      const productReview = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        password: this.password,
+        confirmPassword: this.confirmPassword
+      }
+      console.log(productReview)
+      this.firstName = null
+      this.lastName = null
+      this.email = null
+      this.password = null
+      this.confirmPassword = null
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 @import '../scss/aplication.scss';
 
@@ -38,13 +71,11 @@
 }
 
 .form-container {
-  background-color: #F4F4F4;
-  border-top: 5px solid #0FAAEB;
-  grid-template-rows: repeat(8, 100px);
-  grid-template-columns: 400px;
+  background-color: $light-gray;
+  border-top: 5px solid $blue-wolox;
   display: flex;
   flex-direction: column;
-  margin: 50px 0px;
+  margin: 50px 0;
   max-width: 400px;
   width: 100%;
 }
@@ -73,10 +104,10 @@
 }
 
 .login-button {
-  background-color: #F4F4F4;
-  border: 2px solid #A4CC54;
+  background-color: $light-gray;
+  border: 2px solid $green-wolox;
   border-radius: 8px;
-  color: #A4CC54;
+  color: $green-wolox;
   font-size: 18px;
   height: 60px;
   margin: 20px;
@@ -85,10 +116,10 @@
 }
 
 .submit-button {
-  background-color: #A4CC54;
-  border: 2px solid #A4CC54;
+  background-color: $green-wolox;
+  border: 2px solid $green-wolox;
   border-radius: 8px;
-  color: #FFF;
+  color: $white;
   font-size: 18px;
   height: 60px;
   margin: 20px;
@@ -96,36 +127,3 @@
   width: 100%;
 }
 </style>
-
-<script>
-export default {
-  name: 'register',
-  components: {},
-  data () {
-    return {
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
-      confirmPassword: null
-    }
-  },
-  methods: {
-    onSubmit() {
-      let productReview = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        password: this.password,
-        confirmPassword: this.confirmPassword
-      }
-      console.log(productReview)
-      this.firstName = null
-      this.lastName = null
-      this.email = null
-      this.password = null
-      this.confirmPassword = null
-    }
-  }
-}
-</script>
