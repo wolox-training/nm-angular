@@ -40,7 +40,8 @@
 
 <script>
 import { required, email, sameAs, helpers } from 'vuelidate/lib/validators'
-const validatePassword = helpers.regex('validatePassword', /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$/)
+import { registerUser } from '../services/user-services'
+const validatePassword = helpers.regex('validatePassword', /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
 
 export default {
   name: 'register',
@@ -59,19 +60,21 @@ export default {
     onSubmit() {
       this.submitted = true
       if (!this.$v.$invalid) {
-        const productReview = {
-          firstName: this.firstName,
-          lastName: this.lastName,
+        const newUserData = {
+          first_name: this.firstName,
+          last_name: this.lastName,
           email: this.email,
           password: this.password,
-          confirmPassword: this.confirmPassword
+          locale: 'en',
+          confirm_password: this.confirmPassword
         }
-        console.log(productReview)
+        registerUser(newUserData)
         this.firstName = null
         this.lastName = null
         this.email = null
         this.password = null
         this.confirmPassword = null
+        this.submitted = false
       }
     }
   },
@@ -136,6 +139,7 @@ export default {
   height: 30px;
   margin-top: 10px;
   max-width: 350px;
+  padding: 0 10px;
   width: 100%;
 }
 
