@@ -98,7 +98,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/aplication.scss';
+@import '../scss/variables/_colors';
 
 .container {
   align-items: center;
