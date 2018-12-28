@@ -32,10 +32,11 @@
       input.input-field(type='password' v-model='confirmPassword')
       span.errorMessage(v-if='$v.confirmPassword.$invalid && submitted')
         | password do not match.
-    button.green-button.submit-button(type='submit')
+    button.green-button(type='submit')
       | Sign up
-    button.green-button.login-button
-      | Log in
+    routerLink(to='/login')
+      button.grey-button(type='button')
+        | Log in
 </template>
 
 <script>
@@ -89,7 +90,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-@import '../scss/variables/_colors';
+@import '../scss/variables/_colors.scss';
 
 .container {
   align-items: center;
@@ -131,7 +132,7 @@ export default {
   width: 100%;
 }
 
-.login-button {
+.grey-button {
   background-color: $light-gray;
   border: 2px solid $green-wolox;
   border-radius: 8px;
@@ -143,7 +144,7 @@ export default {
   width: 100%;
 }
 
-.submit-button {
+.green-button {
   background-color: $green-wolox;
   border: 2px solid $green-wolox;
   border-radius: 8px;
@@ -158,4 +159,5 @@ export default {
 .errorMessage {
   padding: 5px 10px 0;
 }
+
 </style>
