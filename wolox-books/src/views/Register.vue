@@ -69,7 +69,9 @@ export default {
           locale: 'en',
           confirm_password: this.confirmPassword
         }
-        registerUser(newUserData)
+        registerUser(newUserData).then(() => {
+          this.$router.push('/login')
+        })
         this.firstName = null
         this.lastName = null
         this.email = null
