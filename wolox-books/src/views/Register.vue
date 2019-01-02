@@ -32,11 +32,10 @@
       input.input-field(type='password' v-model='confirmPassword')
       span.error-message(v-if='$v.confirmPassword.$invalid && submitted')
         | password do not match.
-    button.green-button(type='submit')
+    button.form-button.green-button(type='submit')
       | Sign up
-    router-link(to='/login')
-      button.grey-button(type='button')
-        | Log in
+    router-link.display-center.form-button.grey-button(to='/login')
+      | Log in
 </template>
 
 <script>
@@ -88,6 +87,3 @@ export default {
   }
 }
 </script>
-
-<style lang='scss'>
-</style>
