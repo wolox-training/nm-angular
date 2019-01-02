@@ -16,7 +16,7 @@
         | Invalid field. Upper letters and numbers are required.
     button.green-button(type='submit')
       | Log in
-    routerLink(to='/signup')
+    router-link(to='/signup')
       button.grey-button(type='button')
         | Sign up
 </template>
@@ -24,7 +24,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import { loginUser } from '../services/user-services'
-import validatePassword from '../config/helpers'
+import { validatePassword } from '../config/helpers'
 
 export default {
   name: 'register',
@@ -58,5 +58,5 @@ export default {
 }
 </script>
 
-<style scoped lang='scss'>
+<style lang='scss'>
 </style>
