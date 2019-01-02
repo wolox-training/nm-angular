@@ -43,6 +43,7 @@
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 import { registerUser } from '../services/user-services'
 import { validatePassword } from '../config/helpers'
+import { routes } from '@/constants'
 
 export default {
   name: 'register',
@@ -70,7 +71,7 @@ export default {
           confirm_password: this.confirmPassword
         }
         registerUser(newUserData).then(() => {
-          this.$router.push('/login')
+          this.$router.push(routes.login)
         })
         this.firstName = null
         this.lastName = null
