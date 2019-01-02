@@ -34,7 +34,7 @@
         | password do not match.
     button.green-button(type='submit')
       | Sign up
-    routerLink(to='/login')
+    router-link(to='/login')
       button.grey-button(type='button')
         | Log in
 </template>
@@ -89,5 +89,5 @@ export default {
 }
 </script>
 
-<style scoped lang='scss'>
+<style lang='scss'>
 </style>
