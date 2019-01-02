@@ -6,31 +6,31 @@
       label.input-label
         | First name
       input.input-field(type='text' v-model='firstName')
-      span.errorMessage(v-if='$v.firstName.$invalid && submitted')
+      span.error-message(v-if='$v.firstName.$invalid && submitted')
         | Invalid field.
     .input-container
       label.input-label
         | Last name
       input.input-field(type='text' v-model='lastName')
-      span.errorMessage(v-if='$v.lastName.$invalid && submitted')
+      span.error-message(v-if='$v.lastName.$invalid && submitted')
         | Invalid field.
     .input-container
       label.input-label
         | Email
       input.input-field(type='email' v-model='email')
-      span.errorMessage(v-if='$v.email.$invalid && submitted')
+      span.error-message(v-if='$v.email.$invalid && submitted')
         | Invalid field.
     .input-container
       label.input-label
         | Password
       input.input-field(type='password' v-model='password')
-      span.errorMessage(v-if='$v.password.$invalid && submitted')
+      span.error-message(v-if='$v.password.$invalid && submitted')
         | Invalid field. Upper letters and numbers are required.
     .input-container
       label.input-label
         | Confirm password
       input.input-field(type='password' v-model='confirmPassword')
-      span.errorMessage(v-if='$v.confirmPassword.$invalid && submitted')
+      span.error-message(v-if='$v.confirmPassword.$invalid && submitted')
         | password do not match.
     button.green-button(type='submit')
       | Sign up
@@ -42,7 +42,7 @@
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 import { registerUser } from '../services/user-services'
-import validatePassword from '../config/helpers'
+import { validatePassword } from '../config/helpers'
 
 export default {
   name: 'register',
