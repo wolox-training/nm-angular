@@ -4,4 +4,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
-@import 'variables/_colors'
+@import 'variables/colors';
+@import 'common/button';
+@import 'common/form';
+@import 'common/texts';
+@import 'common/image';
+@import 'common/display';

@@ -11,7 +11,7 @@ export function saveUser(authToken) {
 }
 
 export function loginUser(user) {
-  booksApi.post('/users/sessions', { 'session': user })
+  return booksApi.post('/users/sessions', { 'session': user })
     .then(response => {
       saveUser(response.data.access_token)
       router.push('/dashboard')

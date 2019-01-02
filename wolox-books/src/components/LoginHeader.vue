@@ -7,6 +7,7 @@
 
 <script>
 import { logoutUser } from '../services/user-services'
+import { routes } from '@/constants'
 
 export default {
   name: 'LoginHeader',
@@ -16,7 +17,7 @@ export default {
   methods: {
     logout() {
       logoutUser()
-      this.$router.push('/login')
+      this.$router.push(routes.login)
     }
   }
 }
