@@ -40,6 +40,7 @@
 
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
+import { registerUser } from '../services/user-services'
 import { validatePassword } from '../config/helpers'
 
 export default {
@@ -59,14 +60,15 @@ export default {
     onSubmit() {
       this.submitted = true
       if (!this.$v.$invalid) {
-        const productReview = {
-          firstName: this.firstName,
-          lastName: this.lastName,
+        const newUserData = {
+          first_name: this.firstName,
+          last_name: this.lastName,
           email: this.email,
           password: this.password,
-          confirmPassword: this.confirmPassword
+          locale: 'en',
+          confirm_password: this.confirmPassword
         }
-        console.log(productReview)
+        registerUser(newUserData)
         this.firstName = null
         this.lastName = null
         this.email = null
@@ -125,6 +127,7 @@ export default {
   height: 30px;
   margin-top: 10px;
   max-width: 350px;
+  padding: 0 10px;
   width: 100%;
 }
 
