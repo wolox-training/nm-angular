@@ -5,3 +5,9 @@
 .bold {
   font-weight: bold;
 }
+
+.text {
+  padding: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

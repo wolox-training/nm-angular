@@ -1,0 +1,53 @@
+<template lang='pug'>
+.books-container
+  a.books-list(v-for='book in booksToShow')
+    img.book-image(:src='book.image_url' alt='Book Image')
+    span.bold.text
+      | {{book.title}}
+    span.text
+      | {{book.author}}
+</template>
+
+<script>
+import { getListOfBooks } from '../services/bookService'
+
+export default {
+  data() {
+    return {
+      booksToShow: []
+    }
+  },
+  methods: {
+    getBooks() {
+      getListOfBooks().then(response => {
+        this.booksToShow = response.data
+      })
+    }
+  },
+  beforeMount() {
+    this.getBooks()
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '../scss/aplication';
+
+.books-container {
+  display: grid;
+  grid-auto-rows: 250px;
+  grid-gap: 15px;
+  grid-template-columns: repeat(4, 200px);
+  max-width: 800px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.books-list {
+  padding: 20px;
+  background: $light-gray;
+  display: flex;
+  flex-direction: column;
+}
+
+</style>
