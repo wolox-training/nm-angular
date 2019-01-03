@@ -7,8 +7,6 @@ import Navbar from '@/components/Navbar'
 
 export default {
   name: 'dashboard',
-  components: {
-    Navbar
-  }
+  components: { Navbar }
 }
 </script>
