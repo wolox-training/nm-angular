@@ -10,9 +10,6 @@ import BooksList from '@/components/BooksList'
 
 export default {
   name: 'dashboard',
-  components: {
-    Navbar,
-    BooksList
-  }
+  components: { Navbar, BooksList }
 }
 </script>
