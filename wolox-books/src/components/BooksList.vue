@@ -1,15 +1,15 @@
 <template lang='pug'>
 .books-container
-  a.books-list(v-for='book in booksToShow')
-    img.book-image(:src='book.image_url' alt='Book Image')
-    span.bold.text
+  a.books-list(v-for='book in booksToShow' :key='book.id')
+    img.book-image(:src='book.image_url' :alt='book.title')
+    span.bold.text-ending
       | {{book.title}}
-    span.text
+    span.text-ending
       | {{book.author}}
 </template>
 
 <script>
-import { getListOfBooks } from '../services/bookService'
+import { getListOfBooks } from '@/services/bookService'
 
 export default {
   data() {
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/aplication';
+@import '../scss/variables/colors';
 
 .books-container {
   display: grid;

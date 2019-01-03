@@ -1,5 +1,5 @@
 import booksApi from '@/config/api'
-import { setValue, removeValue } from './LocalStorageService'
+import { setValue, removeValue, getValue } from './LocalStorageService'
 import router from '@/router'
 import { routes } from '@/constants'
 
