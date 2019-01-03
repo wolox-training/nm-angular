@@ -1,19 +1,15 @@
 <template lang='pug'>
   header.header-container
     img(src='../assets/wolox.png' alt='Wolox')
-    button.bold.logout(v-on:click='logout')
+    button.bold.logout(type='button' @click='logout')
       | Logout
 </template>
 
 <script>
-import { logoutUser } from '../services/user-services'
+import { logoutUser } from '@/services/UserServices'
 import { routes } from '@/constants'
 
 export default {
-  name: 'LoginHeader',
-  data () {
-    return {}
-  },
   methods: {
     logout() {
       logoutUser()
@@ -24,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/variables/colors.scss';
+@import '../scss/aplications';
 
 .header-container {
   background: $light-gray;
@@ -42,9 +38,5 @@ export default {
   background: $light-gray;
   border: none;
   font-size: 20px;
-}
-
-.bold {
-  font-weight: bold;
 }
 </style>

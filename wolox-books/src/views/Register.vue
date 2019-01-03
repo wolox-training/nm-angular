@@ -34,9 +34,8 @@
         | password do not match.
     button.green-button(type='submit')
       | Sign up
-    router-link(to='/login')
-      button.grey-button(type='button')
-        | Log in
+    router-link.display-center.grey-button(to='/login')
+      | Log in
 </template>
 
 <script>
@@ -73,12 +72,6 @@ export default {
         registerUser(newUserData).then(() => {
           this.$router.push(routes.login)
         })
-        this.firstName = null
-        this.lastName = null
-        this.email = null
-        this.password = null
-        this.confirmPassword = null
-        this.submitted = false
       }
     }
   },
@@ -91,6 +84,3 @@ export default {
   }
 }
 </script>
-
-<style lang='scss'>
-</style>

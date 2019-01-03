@@ -6,19 +6,18 @@
       label.input-label
         | Email
       input.input-field(type='email' v-model='email')
-      span.errorMessage(v-if='$v.email.$invalid && submitted')
+      span.error-message(v-if='$v.email.$invalid && submitted')
         | Invalid field.
     .input-container
       label.input-label
         | Password
       input.input-field(type='password' v-model='password')
-      span.errorMessage(v-if='$v.password.$invalid && submitted')
+      span.error-message(v-if='$v.password.$invalid && submitted')
         | Invalid field. Upper letters and numbers are required.
     button.green-button(type='submit')
       | Log in
-    router-link(to='/signup')
-      button.grey-button(type='button')
-        | Sign up
+    router-link.display-center.grey-button(to='/signup')
+      | Sign up
 </template>
 
 <script>
@@ -45,9 +44,6 @@ export default {
           password: this.password
         }
         loginUser(userData)
-        this.email = null
-        this.password = null
-        this.submitted = false
       }
     }
   },
@@ -57,6 +53,3 @@ export default {
   }
 }
 </script>
-
-<style lang='scss'>
-</style>
