@@ -20,7 +20,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+<<<<<<< HEAD
 @import '../scss/aplication';
+=======
+@import '../scss/colors';
+>>>>>>> login
 
 .header-container {
   background: $light-gray;
