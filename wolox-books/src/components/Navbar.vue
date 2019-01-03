@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { logoutUser } from '@/services/UserServices'
+import { logoutUser } from '@/services/userServices'
 import { routes } from '@/constants'
 
 export default {
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/aplications';
+@import '../scss/aplication';
 
 .header-container {
   background: $light-gray;

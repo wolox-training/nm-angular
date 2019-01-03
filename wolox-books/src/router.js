@@ -16,7 +16,7 @@ export default new Router({
       component: () => import('./views/Register.vue')
     },
     {
-      path: '/dashboard',
+      path: '/',
       name: 'Dashboard',
       component: () => import('./views/Dashboard.vue')
     }

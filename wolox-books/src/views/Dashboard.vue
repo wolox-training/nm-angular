@@ -1,20 +1,14 @@
 <template lang='pug'>
-LoginHeader
+Navbar
 </template>
 
 <script>
-import LoginHeader from '@/components/LoginHeader.vue'
+import Navbar from '@/components/Navbar'
 
 export default {
-  name: 'register',
+  name: 'dashboard',
   components: {
-    LoginHeader
-  },
-  data () {
-    return {}
+    Navbar
   }
 }
 </script>
-
-<style lang='scss'>
-</style>

@@ -1,6 +1,7 @@
 import booksApi from '../config/api'
-import { setValue, removeValue } from '../services/localServiceStorage'
+import { setValue, removeValue } from './localStorageService'
 import router from '@/router'
+import { routes } from '@/constants'
 
 export function registerUser(user) {
   return booksApi.post('/users', { user })
@@ -14,7 +15,7 @@ export function loginUser(user) {
   return booksApi.post('/users/sessions', { 'session': user })
     .then(response => {
       saveUser(response.data.access_token)
-      router.push('/dashboard')
+      router.push(routes.dashboard)
     })
 }
 

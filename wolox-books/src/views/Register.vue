@@ -40,7 +40,7 @@
 
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
-import { registerUser } from '../services/user-services'
+import { registerUser } from '../services/userServices'
 import { validatePassword } from '../config/helpers'
 import { routes } from '@/constants'
 
