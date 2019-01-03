@@ -14,9 +14,9 @@
       input.input-field(type='password' v-model='password')
       span.error-message(v-if='$v.password.$invalid && submitted')
         | Invalid field. Upper letters and numbers are required.
-    button.form-button.green-button(type='submit')
+    button.green-button(type='submit')
       | Log in
-    router-link.display-center.form-button.grey-button(to='/signup')
+    router-link.display-center.grey-button(to='/signup')
       | Sign up
 </template>
 

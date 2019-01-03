@@ -1,4 +1,4 @@
-.form-button {
+%button {
   border: 2px solid $green-wolox;
   border-radius: 8px;
   font-size: 18px;
@@ -9,11 +9,13 @@
 }
 
 .grey-button {
+  @extend %button;
   background-color: $light-gray;
   color: $green-wolox;
 }
   
 .green-button {
+  @extend %button;
   background-color: $green-wolox;
   color: $white;
 }
