@@ -14,6 +14,7 @@ export default {
     logout() {
       logoutUser()
       this.$router.push(routes.login)
+      this.$store.dispatch('userLoggedOut')
     }
   }
 }
