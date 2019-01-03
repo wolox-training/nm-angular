@@ -44,9 +44,6 @@ export default {
           password: this.password
         }
         loginUser(userData)
-        this.email = null
-        this.password = null
-        this.submitted = false
       }
     }
   },

@@ -72,12 +72,6 @@ export default {
         registerUser(newUserData).then(() => {
           this.$router.push(routes.login)
         })
-        this.firstName = null
-        this.lastName = null
-        this.email = null
-        this.password = null
-        this.confirmPassword = null
-        this.submitted = false
       }
     }
   },
