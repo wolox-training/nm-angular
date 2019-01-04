@@ -44,6 +44,7 @@ export default {
           password: this.password
         }
         loginUser(userData)
+        this.$store.dispatch('userLogged')
       }
     }
   },
