@@ -1,8 +1,33 @@
 <template lang='pug'>
 .book-container.row.back-grey
+  img.book-image.margin-20(:src='book.image_url' :alt='book.title')
+  .column.width-100
+    .row.pad-20.under-green-line
+      span.bold.text-ending.pad-right-5
+        | {{book.title}}
+      span.text-ending.pad-right-5
+        | ({{book.genre}})
+    .border
+      .row.pad-5
+        span.text-ending.bold
+          | Book Author:
+        span.text-ending
+          | {{book.author}}
+      .row.pad-5
+        span.text-ending.bold
+          | Publisher:
+        span.text-ending
+          | {{book.publisher}}
+      .row.pad-5
+        span.text-ending.bold
+          | Year of publication:
+        span.text-ending
+          | {{book.year}}
 </template>
 
 <script>
+import { getBookDetails } from '@/services/bookService'
+
 export default {
   data() {
     return {
@@ -12,7 +37,9 @@ export default {
   },
   methods: {
     getBookInformation() {
-      this.book = this.$store.getters.oneBook(this.bookId)
+      getBookDetails(this.bookId).then(response => {
+        this.book = response.data
+      })
     }
   },
   beforeMount() {
@@ -24,37 +51,8 @@ export default {
 <style scoped lang="scss">
 @import '../scss/variables/colors';
 
-.row {
-  flex-direction: row;
-}
-
-.pad-5 {
-  padding: 5px;
-}
-
-.pad-20 {
-  margin: 20px 10px;
-  padding: 10px 0;
-}
-
-.pad-right-5 {
-  padding-right: 5px;
-}
-
 .under-green-line {
   border-bottom: 2px solid $green-wolox;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.width-100 {
-  width: 100%;
-}
-
-.margin-20 {
-  margin: 20px;
 }
 
 .book-container {
@@ -63,10 +61,15 @@ export default {
   margin: 30px auto;
   width: 100%;
   background-color: $white;
-  height: 200px;
+  height: auto;
 }
 
 .back-grey {
   background-color: $light-gray;
+}
+
+.border {
+  margin: 20px 10px;
+  padding: 10px 0;
 }
 </style>
