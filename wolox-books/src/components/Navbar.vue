@@ -8,13 +8,15 @@
 <script>
 import { logoutUser } from '@/services/UserServices'
 import { routes } from '@/constants'
+import { mapActions } from 'vuex'
 
 export default {
   methods: {
+    ...mapActions(['userLoggedOut']),
     logout() {
       logoutUser()
       this.$router.push(routes.login)
-      this.$store.dispatch('userLoggedOut')
+      this.userLoggedOut()
     }
   }
 }
