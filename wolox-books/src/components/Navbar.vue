@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/colors';
+@import '../scss/variables/colors';
 
 .header-container {
   background: $light-gray;

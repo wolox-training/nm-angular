@@ -22,8 +22,8 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import { loginUser } from '../services/user-services'
-import { validatePassword } from '../config/helpers'
+import { loginUser } from '@/services/UserServices'
+import { validatePassword } from '@/config/helpers'
 
 export default {
   name: 'register',
