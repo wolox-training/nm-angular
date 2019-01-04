@@ -1,7 +1,5 @@
-import booksApi from '../config/api'
-import { setUserAuth } from './UserServices'
+import booksApi from '@/config/api'
 
 export function getListOfBooks() {
-  setUserAuth()
   return booksApi.get('/books')
 }

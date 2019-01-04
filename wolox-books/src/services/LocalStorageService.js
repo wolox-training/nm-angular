@@ -12,3 +12,10 @@ export function removeValue(key) {
   const encodedKey = window.btoa(`@@AUTH:${key}`)
   window.localStorage.removeItem(encodedKey)
 }
+
+export function getValue(key) {
+  const encodedKey = window.btoa(`@@AUTH:${key}`)
+  let encodedValue = window.localStorage.getItem(encodedKey)
+  const stringValue = encodedValue && window.atob(encodedValue)
+  return stringValue && JSON.parse(stringValue)
+}
