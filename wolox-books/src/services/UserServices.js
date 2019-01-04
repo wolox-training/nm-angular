@@ -1,5 +1,5 @@
 import booksApi from '@/config/api'
-import { setValue, removeValue, getValue } from './LocalStorageService'
+import * as localStorageService from './LocalStorageService'
 import router from '@/router'
 import { routes } from '@/constants'
 
@@ -8,8 +8,8 @@ export function registerUser(user) {
 }
 
 export function saveUser(authToken) {
-  setValue('token', authToken)
-  setUserAuth()
+  localStorageService.setValue('token', authToken)
+  booksApi.defaults.headers.common['Authorization'] = authToken
 }
 
 export function loginUser(user) {
@@ -21,10 +21,5 @@ export function loginUser(user) {
 }
 
 export function logoutUser() {
-  removeValue('token')
-}
-
-export function setUserAuth () {
-  const authToken = getValue('token')
-  booksApi.defaults.headers.common['Authorization'] = authToken
+  localStorageService.removeValue('token')
 }

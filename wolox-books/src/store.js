@@ -6,27 +6,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userStatus: 'not logged',
+    loginStatus: false,
     booksList: []
   },
   mutations: {
-    SET_USER_STATUS(state, status) {
-      state.userStatus = status
+    setUserStatus(state, status) {
+      state.loginStatus = status
     },
-    SET_BOOKS(state, books) {
+    setBooks(state, books) {
       state.booksList = books
     }
   },
   actions: {
     userLogged(context) {
-      context.commit('SET_USER_STATUS', 'logged')
+      context.commit('setUserStatus', true)
     },
     userLoggedOut(context) {
-      context.commit('SET_USER_STATUS', 'not logged')
+      context.commit('setUserStatus', false)
     },
     bringBooks(context) {
       getListOfBooks().then(response => {
-        context.commit('SET_BOOKS', response.data)
+        context.commit('setBooks', response.data)
       })
     }
   },
