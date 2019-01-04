@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import { getListOfBooks } from '@/services/bookService'
-
 export default {
   data() {
     return {
@@ -19,9 +17,8 @@ export default {
   },
   methods: {
     getBooks() {
-      getListOfBooks().then(response => {
-        this.booksToShow = response.data
-      })
+      this.$store.dispatch('bringBooks')
+      this.booksToShow = this.$store.getters.allBooks
     }
   },
   beforeMount() {
