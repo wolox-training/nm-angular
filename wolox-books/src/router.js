@@ -19,6 +19,11 @@ export default new Router({
       path: '/',
       name: 'Dashboard',
       component: () => import('./views/Dashboard.vue')
+    },
+    {
+      path: '/books/:id',
+      name: 'BookDetail',
+      component: () => import('./views/BookDetail.vue')
     }
   ]
 })

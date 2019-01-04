@@ -35,7 +35,7 @@ export default new Vuex.Store({
       return state.booksList
     },
     oneBook(state) {
-      return id => state.booksList[id]
+      return id => state.booksList.filter(book => id === book.id)[0]
     }
   }
 })

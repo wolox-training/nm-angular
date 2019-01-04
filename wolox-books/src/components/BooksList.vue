@@ -1,6 +1,10 @@
 <template lang='pug'>
 .books-container
-  router-link.books-list(v-for='book in booksToShow' :key='book.id' to='/')
+  router-link.books-list(
+    v-for='book in booksToShow'
+    :key='book.id'
+    :to="'/books/' + book.id"
+  )
     img.book-image(:src='book.image_url' :alt='book.title')
     span.bold.text-ending
       | {{book.title}}
