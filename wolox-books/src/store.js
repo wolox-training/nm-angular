@@ -5,19 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userStatus: 'not logged'
+    loginStatus: false
   },
   mutations: {
-    SET_USER_STATUS(state, status) {
-      state.userStatus = status
+    setUserStatus(state, status) {
+      state.loginStatus = status
     }
   },
   actions: {
     userLogged(context) {
-      context.commit('SET_USER_STATUS', 'logged')
+      context.commit('setUserStatus', true)
     },
     userLoggedOut(context) {
-      context.commit('SET_USER_STATUS', 'not logged')
+      context.commit('setUserStatus', false)
     }
   }
 })
