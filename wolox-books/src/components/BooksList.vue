@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -20,10 +22,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['bringBooks']),
     getBooks() {
-      this.$store.dispatch('bringBooks')
-      this.booksToShow = this.$store.getters.allBooks
+      this.bringBooks()
+      this.booksToShow = this.allBooks
     }
+  },
+  computed: {
+    ...mapGetters(['allBooks'])
   },
   beforeMount() {
     this.getBooks()

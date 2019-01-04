@@ -4,17 +4,13 @@ import { getListOfBooks } from '@/services/bookService'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const moduleUser = {
   state: {
-    loginStatus: false,
-    booksList: []
+    loginStatus: false
   },
   mutations: {
     setUserStatus(state, status) {
       state.loginStatus = status
-    },
-    setBooks(state, books) {
-      state.booksList = books
     }
   },
   actions: {
@@ -23,19 +19,34 @@ export default new Vuex.Store({
     },
     userLoggedOut(context) {
       context.commit('setUserStatus', false)
-    },
+    }
+  }
+}
+
+const moduleBooks = {
+  state: {
+    booksList: []
+  },
+  getters: {
+    allBooks: state => state.booksList
+  },
+  mutations: {
+    setBooks(state, books) {
+      state.booksList = books
+    }
+  },
+  actions: {
     bringBooks(context) {
       getListOfBooks().then(response => {
         context.commit('setBooks', response.data)
       })
     }
-  },
-  getters: {
-    allBooks(state) {
-      return state.booksList
-    },
-    oneBook(state) {
-      return id => state.booksList.filter(book => id === book.id)[0]
-    }
+  }
+}
+
+export default new Vuex.Store({
+  modules: {
+    user: moduleUser,
+    books: moduleBooks
   }
 })
