@@ -1,7 +1,7 @@
 <template lang='pug'>
 .books-container
   router-link.books-list(
-    v-for='book in booksToShow'
+    v-for='book in allBooks'
     :key='book.id'
     :to="'/books/' + book.id"
   )
@@ -16,16 +16,10 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      booksToShow: []
-    }
-  },
   methods: {
     ...mapActions(['bringBooks']),
     getBooks() {
       this.bringBooks()
-      this.booksToShow = this.allBooks
     }
   },
   computed: {
