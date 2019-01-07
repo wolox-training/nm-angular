@@ -1,6 +1,6 @@
 <template lang='pug'>
 .books-container
-  router-link.books-list(v-for='book in booksToShow' :key='book.id' to='/')
+  router-link.books-list(v-for='book in allBooks' :key='book.id' to='/')
     img.book-image(:src='book.image_url' :alt='book.title')
     span.bold.text-ending
       | {{book.title}}
@@ -12,16 +12,10 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      booksToShow: []
-    }
-  },
   methods: {
     ...mapActions(['bringBooks']),
     getBooks() {
       this.bringBooks()
-      this.booksToShow = this.allBooks
     }
   },
   computed: {
