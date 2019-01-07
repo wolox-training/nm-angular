@@ -4,38 +4,38 @@
     img.wolox-image(src='../assets/wolox.png' alt='Wolox')
     .input-container
       label.input-label
-        | First name
+        | {{ $t('signUpForm.firstName') }}
       input.input-field(type='text' v-model='firstName')
       span.error-message(v-if='$v.firstName.$invalid && submitted')
-        | Invalid field.
+        | {{ $t('errors.invalidField') }}
     .input-container
       label.input-label
-        | Last name
+        | {{ $t('signUpForm.lastName') }}
       input.input-field(type='text' v-model='lastName')
       span.error-message(v-if='$v.lastName.$invalid && submitted')
-        | Invalid field.
+        | {{ $t('errors.invalidField') }}
     .input-container
       label.input-label
-        | Email
+        | {{ $t('signUpForm.email') }}
       input.input-field(type='email' v-model='email')
       span.error-message(v-if='$v.email.$invalid && submitted')
-        | Invalid field.
+        | {{ $t('errors.invalidField') }}
     .input-container
       label.input-label
-        | Password
+        | {{ $t('signUpForm.password') }}
       input.input-field(type='password' v-model='password')
       span.error-message(v-if='$v.password.$invalid && submitted')
-        | Invalid field. Upper letters and numbers are required.
+        | {{ $t('errors.invalidPassword') }}
     .input-container
       label.input-label
-        | Confirm password
+        | {{ $t('signUpForm.confirmPassword') }}
       input.input-field(type='password' v-model='confirmPassword')
       span.error-message(v-if='$v.confirmPassword.$invalid && submitted')
-        | password do not match.
+        | {{ $t('errors.passwordMissmatch') }}
     button.green-button(type='submit')
-      | Sign up
+      | {{ $t('buttons.signUp') }}
     router-link.display-center.grey-button(to='/login')
-      | Log in
+      | {{ $t('buttons.logIn') }}
 </template>
 
 <script>
