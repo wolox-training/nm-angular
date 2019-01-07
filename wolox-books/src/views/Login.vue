@@ -4,7 +4,7 @@
     img.wolox-image(src='../assets/wolox.png' alt='Wolox')
     .input-container
       label.input-label
-        | Email
+        | "{{ $t('signInForm.email') }}"
       input.input-field(type='email' v-model='email')
       span.error-message(v-if='$v.email.$invalid && submitted')
         | Invalid field.
