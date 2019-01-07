@@ -3,7 +3,7 @@
   router-link.books-list(
     v-for='book in allBooks'
     :key='book.id'
-    :to="'/books/' + book.id"
+    :to="{ name: 'BookDetail', params: { id: book.id }}"
   )
     img.book-image(:src='book.image_url' :alt='book.title')
     span.bold.text-ending

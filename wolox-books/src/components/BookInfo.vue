@@ -31,13 +31,12 @@ import { getBookDetails } from '@/services/bookService'
 export default {
   data() {
     return {
-      bookId: this.$route.params.id,
       book: {}
     }
   },
   methods: {
     getBookInformation() {
-      getBookDetails(this.bookId).then(response => {
+      getBookDetails(this.$route.params.id).then(response => {
         this.book = response.data
       })
     }
