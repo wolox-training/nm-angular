@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { moduleUser } from '@/modules/user'
-import { moduleBooks } from '@/modules/books'
+import { moduleUser } from '@/store/modules/user'
+import { moduleBooks } from '@/store/modules/books'
 
 Vue.use(Vuex)
 
