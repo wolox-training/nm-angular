@@ -1,6 +1,7 @@
 <template lang="pug">
   #app
-    navbar(v-if='userStatus')
+    transition(name='efect' mode='out-in')
+      navbar(v-if='userStatus')
     router-view
 </template>
 
@@ -18,4 +19,34 @@ export default {
 
 <style lang="scss">
 @import 'scss/aplication';
+
+.efect-enter-active, .efect-leave-active {
+  animation: 2s enetrAnim forwards;
+}
+
+.efect-leave-active {
+  animation: 2s leavingAnim forwards;
+}
+
+@keyframes enetrAnim {
+  from {
+    opacity: 0;
+    transform: translateY(-75px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leavingAnim {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-75px);
+  }
+}
 </style>
