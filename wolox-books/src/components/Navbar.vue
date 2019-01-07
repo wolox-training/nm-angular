@@ -11,6 +11,7 @@ import { routes } from '@/constants'
 import { mapActions } from 'vuex'
 
 export default {
+  name: 'navbar',
   methods: {
     ...mapActions(['userLoggedOut']),
     logout() {
