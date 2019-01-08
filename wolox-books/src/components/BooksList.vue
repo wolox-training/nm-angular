@@ -1,6 +1,6 @@
 <template lang='pug'>
 .books-container
-  router-link.books-list(v-for='book in booksToShow' :key='book.id' to='/')
+  router-link.books-list(v-for='book in allBooks' :key='book.id' to='/')
     img.book-image(:src='book.image_url' :alt='book.title')
     span.bold.text-ending
       | {{book.title}}
@@ -9,20 +9,17 @@
 </template>
 
 <script>
-import { getListOfBooks } from '@/services/bookService'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      booksToShow: []
+  methods: {
+    ...mapActions(['bringBooks']),
+    getBooks() {
+      this.bringBooks()
     }
   },
-  methods: {
-    getBooks() {
-      getListOfBooks().then(response => {
-        this.booksToShow = response.data
-      })
-    }
+  computed: {
+    ...mapGetters(['allBooks'])
   },
   beforeMount() {
     this.getBooks()

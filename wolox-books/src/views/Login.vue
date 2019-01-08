@@ -24,6 +24,7 @@
 import { required, email } from 'vuelidate/lib/validators'
 import { loginUser } from '@/services/UserServices'
 import { validatePassword } from '@/config/helpers'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'register',
@@ -36,6 +37,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['userLogged']),
     onSubmit() {
       this.submitted = true
       if (!this.$v.$invalid) {
@@ -44,7 +46,7 @@ export default {
           password: this.password
         }
         loginUser(userData)
-        this.$store.dispatch('userLogged')
+        this.userLogged()
       }
     }
   },

@@ -1,9 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export const moduleUser = {
   state: {
     loginStatus: false
   },
@@ -20,4 +15,4 @@ export default new Vuex.Store({
       context.commit('setUserStatus', false)
     }
   }
-})
+}
