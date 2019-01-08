@@ -1,13 +1,13 @@
 export const moduleUser = {
   state: {
-    loginStatus: false
+    isUserLogged: false
   },
   getters: {
-    userStatus: state => state.loginStatus
+    userStatus: state => state.isUserLogged
   },
   mutations: {
     setUserStatus(state, status) {
-      state.loginStatus = status
+      state.isUserLogged = status
     }
   },
   actions: {

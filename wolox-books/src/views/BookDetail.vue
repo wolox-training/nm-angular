@@ -1,45 +1,42 @@
 <template lang='pug'>
 .book-container.row.back-grey
-  img.book-image.margin-20(:src='book.image_url' :alt='book.title')
+  img.book-image.margin-20(:src='selectedBook.image_url' :alt='selectedBook.title')
   .column.width-100
     .row.pad-20.under-green-line
       span.bold.text-ending.pad-right-5
-        | {{book.title}}
+        | {{selectedBook.title}}
       span.text-ending.pad-right-5
-        | ({{book.genre}})
+        | ({{selectedBook.genre}})
     .border
       .row.pad-5
         span.text-ending.bold
           | Book Author:
         span.text-ending
-          | {{book.author}}
+          | {{selectedBook.author}}
       .row.pad-5
         span.text-ending.bold
           | Publisher:
         span.text-ending
-          | {{book.publisher}}
+          | {{selectedBook.publisher}}
       .row.pad-5
         span.text-ending.bold
           | Year of publication:
         span.text-ending
-          | {{book.year}}
+          | {{selectedBook.year}}
 </template>
 
 <script>
-import { getBookDetails } from '@/services/bookService'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      book: {}
+  methods: {
+    ...mapActions(['bringSingleBook']),
+    getBooks() {
+      this.bringSingleBook()
     }
   },
-  methods: {
-    getBookInformation() {
-      getBookDetails(this.$route.params.id).then(response => {
-        this.book = response.data
-      })
-    }
+  computed: {
+    ...mapGetters(['selectedBook'])
   },
   beforeMount() {
     this.getBookInformation()
