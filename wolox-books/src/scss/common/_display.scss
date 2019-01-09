@@ -9,3 +9,27 @@
   display: flex;
   justify-content: center;
 }
+
+.column {
+  flex-direction: column;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.margin-20 {
+  margin: 20px;
+}
+
+.pad-right-5 {
+  padding-right: 5px;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.pad-5 {
+  padding: 5px;
+}
